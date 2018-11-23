@@ -16,7 +16,10 @@ def say_hello():
 
 @app.route('/api/qa', methods=['POST'])
 def answer_qa():
-    return "I am thinking about it"
+    resp = {"answer": "I am thinking about it"}
+    resp = make_response(json.dumps(resp))
+    resp.headers['Content-Type'] = 'application/json'
+    return resp
 
 def start_http_server():
     '''
