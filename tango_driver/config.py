@@ -56,5 +56,5 @@ class Config():
         self.HTTP_STATUS_ERROR = config_json["HTTP_STATUS_ERROR"]
 
         self.MODEL_URL = config_json["MODEL_URL"]
-
+        self.DATA_DIR = config_json["DATA_DIR"]
 

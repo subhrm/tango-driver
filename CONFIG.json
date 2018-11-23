@@ -23,5 +23,6 @@
     "HTTP_STATUS_NOT_FOUND": 404,
     "HTTP_STATUS_ERROR": 500,
 
-    "MODEL_URL":"http://deeplearninganalyticsdemos-564769043.us-east-2.elb.amazonaws.com/"
+    "MODEL_URL":"http://deeplearninganalyticsdemos-564769043.us-east-2.elb.amazonaws.com/",
+    "DATA_DIR" : "./data"
 }

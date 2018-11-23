@@ -1,26 +1,34 @@
 
 from flask import request, make_response, json
 from tango_driver import app, logger, config
-from tango_driver.utils import answer_util
+from tango_driver.utils import answer_util, gk
 
 
 @app.route('/api/qa', methods=['post'])
 def do_qa():
     logger.info("Processing request for qa, verb: %s", str(request.method))
+    answer = "I am sorry. I faced an Internal error."
 
-    if(request.headers['Content-Type'] != 'application/json'):
-            return make_response('{"error":"unsupported content type"}', config.HTTP_STATUS_ERROR)
+    try:
+        if(request.headers['Content-Type'] != 'application/json'):
+                return make_response('{"error":"unsupported content type"}', config.HTTP_STATUS_ERROR)
 
-    logger.info(request.headers['Content-Type'])
-    logger.info(request.get_data())
-    # Get POST parameters
-    input_json = request.json
-    logger.info("Payload %s", json.dumps(input_json))
+        logger.info(request.headers['Content-Type'])
+        logger.info(request.get_data())
+        # Get POST parameters
+        input_json = request.json
+        logger.info("Payload %s", json.dumps(input_json))
 
-    context = input_json["context"]
-    question = input_json["question"]
+        context = input_json["context"]
+        question = input_json["question"]
+        context_type = int(input_json["type"])
 
-    answer = answer_util.get_answer(context, question)
+        if context_type == 2:
+            context = gk.get_context(context.strip())
+
+        answer = answer_util.get_answer(context, question)
+    except Exception as ex:
+        logger.exception("Something went wrong")
 
     resp = make_response(json.dumps({"answer":answer}), config.HTTP_STATUS_OK)
     resp.headers['Content-Type'] = 'application/json'
