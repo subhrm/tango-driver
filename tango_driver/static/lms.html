@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Infynite Loop Demo</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function getanswer(context) {
+            $("#answer").text("Please wait. Trying to answer this question.")
+            $.ajax({
+                url: "http://35.196.31.164:8000/api/qa",
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "context": context,
+                    "question": $("#question").val(),
+                    "type": "1"
+                }),
+                dataType: 'json',
+
+                success: function (data) {
+                    console.log(data)
+                    $("#answer").text(data["answer"])
+                },
+                error: function (err) {
+                    console.log("error")
+                    console.log(err)
+                }
+            });
+        }
+
+
+        function get_harmony_answer(evt) {
+            $("#answer").text("Please wait. Trying to answer this question.")
+            $.ajax({
+                url: "https://9043f42d.ngrok.io/validateUser?tagId="+$("#harmonyid").val(),
+                type: 'GET',
+                
+                success: function (data) {
+                    console.log(data)
+                    $("#balance").text(data["employee_detail"]["leave_balance"])
+                    $("#pending").text(data["employee_detail"]["leave_requests"])
+                    $("#manager").text(data["employee_detail"]["manager_name"])
+                    getanswer(data["context"]);  
+                },
+                error: function (err) {
+                    console.log("error")
+                    console.log(err)
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <h2 class="text-center"> STG Mekathon Nov 2018 </h2>
+    <h2 class="text-center">Infynite Loop - Bhubaneswar</h2>
+    <h3 class="text-center"> LMS NLP Query System </h3>
+
+    <div class="form-group">
+        <label for="harmonyid"> Harmony Id </label>
+        <input id="harmonyid" type="text" class="form-control"></input>
+    </div>
+    <div class="form-group">
+        <label for="question"> Your Question </label>
+        <input type="text" id="question" class="form-control"></input>
+    </div>
+    <button onclick="get_harmony_answer()" class="btn-primary"> Submit</button>
+
+    <hr>
+    <h5 class="text-center"> <label id="answer">Answer</label> </h5>
+
+    <hr>
+    <h5 class="text-left"> <label> Data in the system : </label> leave balance : <span id="balance"></span> . Pending
+        leaves <span id="pending"></span> . Your manager <span id="manager"></span></h5>
+</body>
+
+</html>
