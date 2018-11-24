@@ -8,6 +8,8 @@
     "SSL_KEY_FILE": "ssl.key",
     "SSL_CERT_FILE": "ssl.cer",
 
+    "SQLITE_DB": "./data/tango.db",
+
     "ENABLE_CORS": true,
 
     "LOG_DIR": "./logs",

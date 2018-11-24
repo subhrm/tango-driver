@@ -21,7 +21,7 @@ setup(
     long_description='',
 
     # Project home page (OPTIONAL)
-    url='http://infygit.ad.infosys.com/charminar/charminar-explorer-service',
+    url='',
 
     # Classifiers (OPTIONAL)
     # Valid list of classifiers - https://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -34,7 +34,7 @@ setup(
     ],
 
     # Keywords  (OPTIONAL)
-    keywords='Exploer Makethon',
+    keywords='STG Makethon',
 
     # Project specific packages     (REQUIRED)
     # Specific packages can be manually added or use find_packages()
@@ -48,9 +48,5 @@ setup(
     data_files=[],
 
     # Entry points for the project
-    entry_points={
-        'console_scripts': [
-            'charminar-explorer-service = tango_driver:main'
-        ],
-    },
+    entry_points={   },
 )

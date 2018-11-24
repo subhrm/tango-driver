@@ -1,18 +1,19 @@
 
 from flask import request, make_response, json
 from tango_driver import app, logger, config
-from tango_driver.utils import answer_util, gk
+from tango_driver.utils import buffer_utils, gk
 
 
-@app.route('/api/qa', methods=['post'])
-def do_qa():
+@app.route('/api/post-question', methods=['post'])
+def post_question():
     logger.info("Processing request for qa, verb: %s", str(request.method))
-    answer = "I am sorry. I faced an Internal error."
+    req_id = ""
 
     try:
         if(request.headers['Content-Type'] != 'application/json'):
                 return make_response('{"error":"unsupported content type"}', config.HTTP_STATUS_ERROR)
 
+        logger.info(request.headers['Content-Type'])
         # Get POST parameters
         input_json = request.json
 
@@ -23,11 +24,11 @@ def do_qa():
         if context_type == 2:
             context = gk.get_context(context.strip())
 
-        answer = answer_util.get_answer(context, question)
+        req_id = buffer_utils.add_question(context, question)
     except Exception as ex:
         logger.exception("Something went wrong")
 
-    resp = make_response(json.dumps({"answer":answer}), config.HTTP_STATUS_OK)
+    resp = make_response(json.dumps({"request_id":req_id}), config.HTTP_STATUS_OK)
     resp.headers['Content-Type'] = 'application/json'
 
     return resp

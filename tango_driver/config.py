@@ -24,7 +24,8 @@ class Config():
         self.HTTPS = config_json["HTTPS"]
         self.ENABLE_CORS = config_json["ENABLE_CORS"]
 
-
+        self.SQLITE_DB = config_json["SQLITE_DB"]
+        
         if config_json.get("SSL_CERT_DIR"):
             self.SSL_CERT_DIR = abspath(config_json["SSL_CERT_DIR"])
         else:
