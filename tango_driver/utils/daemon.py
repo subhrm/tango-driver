@@ -17,7 +17,7 @@ def daemon_process():
                 buffer_utils.add_answer(req_id=new_rec["req_id"], answer=answer)
                 logger.info("Got the answer %s %s", new_rec["req_id"], answer)
             
-            time.sleep(3)
+            time.sleep(1)
 
         except Exception as ex:
             logger.excetion("Error in daemon process")
