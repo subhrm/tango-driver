@@ -45,7 +45,7 @@ def get_answer(req_id):
 
     row = cur.fetchone()
 
-    answer = "Answer Not Found"
+    answer = ""
     if row:
         found = row[1]
         if found :
