@@ -17,7 +17,6 @@
     "LOG_DATE_FORMAT": "%Y-%m-%d %H:%M:%S",
     "LOG_LEVEL": "INFO",
 
-
     "HTTP_STATUS_OK": 200,
     "HTTP_STATUS_CREATED": 201,
     "HTTP_STATUS_ACCEPTED": 202,
