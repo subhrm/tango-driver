@@ -18,7 +18,7 @@ def get_wiki_summary(topic):
         )
 
         wiki_page = wiki_en.page(topic)
-        answer = wiki_page.text[:1500]
+        answer = wiki_page.text[:2000]
 
     except Exception as ex:
         logger.exception("Something went wrong")

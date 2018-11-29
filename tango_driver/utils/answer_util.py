@@ -11,10 +11,8 @@ url = config.MODEL_URL
 
 def get_answer(context, question):
     payload = {
-         "para" : context,
-         "q1" : question,
-         "q2" : "",
-         "q3" : ""
+         "passage" : context,
+         "question" : question,
     }
 
     resp = requests.post(url, data=payload)
