@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 
 from tango_driver import config, logger
 
@@ -9,28 +9,30 @@ from tango_driver import config, logger
 
 url = config.MODEL_URL
 
+
 def get_answer(context, question):
     payload = {
-         "passage" : context,
-         "question" : question,
+        "passage": context,
+        "question": question,
     }
 
     resp = requests.post(url, data=payload)
 
     logger.info(resp.status_code)
 
-    if resp.status_code != config.HTTP_STATUS_OK :
+    logger.info(payload)
+    logger.infor(resp.text)
+
+    if resp.status_code != config.HTTP_STATUS_OK:
         return "An error occured."
 
-    soup = BeautifulSoup(resp.text, "html.parser")
+    # soup = BeautifulSoup(resp.text, "html.parser")
 
-    answer = ""
-    try:
-        answer = soup.find_all("span")[1].text
-    except Exception as ex:
-        logger.exception("Some Error occured")
-        answer = "An error occured"
+    # answer = ""
+    # try:
+    #     answer = soup.find_all("span")[1].text
+    # except Exception as ex:
+    #     logger.exception("Some Error occured")
+    #     answer = "An error occured"
 
-    return answer
-
-    
+    return resp.json()["answer"]

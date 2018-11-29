@@ -11,7 +11,7 @@ def do_qa():
 
     try:
         if(request.headers['Content-Type'] != 'application/json'):
-                return make_response('{"error":"unsupported content type"}', config.HTTP_STATUS_ERROR)
+            return make_response('{"error":"unsupported content type"}', config.HTTP_STATUS_ERROR)
 
         # Get POST parameters
         input_json = request.json
@@ -27,7 +27,7 @@ def do_qa():
     except Exception as ex:
         logger.exception("Something went wrong")
 
-    resp = make_response(json.dumps({"answer":answer}), config.HTTP_STATUS_OK)
+    resp = make_response(json.dumps({"answer": answer}), config.HTTP_STATUS_OK)
     resp.headers['Content-Type'] = 'application/json'
 
     return resp
