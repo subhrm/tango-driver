@@ -1,0 +1,61 @@
+{
+  "rasa_nlu_data": {
+    "regex_features": [],
+    "common_examples": [
+      {
+        "intent": "apply_leave",
+        "text": "please apply leave for 2 days"
+      },
+      {
+        "intent": "apply_leave",
+        "text": "apply a leave for me for 1 day"
+      },
+      {
+        "intent": "apply_leave",
+        "text": "can you please apply a leave for next two days from this date"
+      },
+      {
+        "intent": "apply_leave",
+        "text": "i want to apply a leave starting 20th of this month"
+      },
+      {
+        "intent": "apply_leave",
+        "text": "help me apply a leave for the coming monday"
+      },
+      {
+        "intent": "apply_leave",
+        "text": "please plan for a leave for this date"
+      },
+      {
+        "intent": "apply_leave",
+        "text": "am planning to take leave on next monday so request for it"
+      },
+      {
+        "intent": "general_query",
+        "text": "how"
+      },
+      {
+        "intent": "general_query",
+        "text": "why"
+      },
+      {
+        "intent": "general_query",
+        "text": "what"
+      },
+      {
+        "intent": "general_query",
+        "text": "when"
+      },
+      {
+        "intent": "general_query",
+        "text": "where"
+      },
+      {
+        "intent": "general_query",
+        "text": "can"
+      }
+    ],
+    "entity_synonyms": [],
+    "lookup_tables": []
+  }
+}

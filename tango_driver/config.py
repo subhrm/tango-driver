@@ -25,7 +25,7 @@ class Config():
         self.ENABLE_CORS = config_json["ENABLE_CORS"]
 
         self.SQLITE_DB = config_json["SQLITE_DB"]
-        
+
         if config_json.get("SSL_CERT_DIR"):
             self.SSL_CERT_DIR = abspath(config_json["SSL_CERT_DIR"])
         else:
@@ -58,4 +58,6 @@ class Config():
 
         self.MODEL_URL = config_json["MODEL_URL"]
         self.DATA_DIR = config_json["DATA_DIR"]
-
+        self.STATIC_DIR = config_json["STATIC_DIR"]
+        self.RASA_MODEL_DIR = config_json["RASA_MODEL_DIR"]
+        self.LMS_URL = config_json["LMS_URL"]

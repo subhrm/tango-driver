@@ -7,7 +7,7 @@ from tango_driver.utils import answer_util, gk
 @app.route('/api/qa', methods=['post'])
 def do_qa():
     logger.info("Processing request for qa, verb: %s", str(request.method))
-    answer = "I am sorry. I faced an Internal error."
+    answer = {"answer": "I am sorry. I faced an Internal error.", "score": -2.0}
 
     try:
         if(request.headers['Content-Type'] != 'application/json'):
@@ -27,7 +27,7 @@ def do_qa():
     except Exception as ex:
         logger.exception("Something went wrong")
 
-    resp = make_response(json.dumps({"answer": answer}), config.HTTP_STATUS_OK)
+    resp = make_response(json.dumps(answer), config.HTTP_STATUS_OK)
     resp.headers['Content-Type'] = 'application/json'
 
     return resp

@@ -1,0 +1,13 @@
+{
+    "language": "en",
+    "trained_at": "20181129-000146",
+    "training_data": "training_data.json",
+    "rasa_nlu_version": "0.13.8",
+    "pipeline": [
+        {
+            "name": "ner_duckling",
+            "dimensions": null,
+            "class": "rasa_nlu.extractors.duckling_extractor.DucklingExtractor"
+        }
+    ]
+}

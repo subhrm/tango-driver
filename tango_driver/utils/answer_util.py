@@ -21,19 +21,7 @@ def get_answer(context, question):
 
     logger.info(resp.status_code)
 
-    logger.info(payload)
-    logger.info(resp.text)
-
     if resp.status_code != config.HTTP_STATUS_OK:
-        return "An error occured."
+        return {"answer": "An error occured.", "score": -2.0}
 
-    # soup = BeautifulSoup(resp.text, "html.parser")
-
-    # answer = ""
-    # try:
-    #     answer = soup.find_all("span")[1].text
-    # except Exception as ex:
-    #     logger.exception("Some Error occured")
-    #     answer = "An error occured"
-
-    return resp.json()["answer"]
+    return resp.json()

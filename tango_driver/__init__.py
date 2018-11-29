@@ -1,5 +1,5 @@
 
-from flask import Flask, request, make_response
+from flask import Flask, request, make_response, send_from_directory
 from flask_cors import CORS, cross_origin
 from gevent.pywsgi import WSGIServer, LoggingLogAdapter
 import os
@@ -55,7 +55,13 @@ import tango_driver.endpoints.__root__
 import tango_driver.endpoints.qa
 # import tango_driver.endpoints.post_question
 # import tango_driver.endpoints.get_answer
-# import tango_driver.endpoints.get_wiki_summary
+import tango_driver.endpoints.get_wiki_summary
+
+
+# Serve Static Files
+@app.route('/static/<path:path>')
+def serve_static_file(path):
+    return send_from_directory(config.STATIC_DIR, path)
 
 
 logger.info("All API endpoints initialized. ")

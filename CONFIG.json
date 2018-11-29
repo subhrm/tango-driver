@@ -25,5 +25,8 @@
     "HTTP_STATUS_ERROR": 500,
 
     "MODEL_URL": "http://35.243.243.141:8080/answer",
-    "DATA_DIR": "./data"
+    "DATA_DIR": "./data",
+    "STATIC_DIR": "./static",
+    "RASA_MODEL_DIR": "./data/models",
+    "LMS_URL": ""
 }
