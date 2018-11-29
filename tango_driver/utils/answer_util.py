@@ -1,4 +1,5 @@
 import requests
+import json
 # from bs4 import BeautifulSoup
 
 from tango_driver import config, logger
@@ -16,12 +17,12 @@ def get_answer(context, question):
         "question": question,
     }
 
-    resp = requests.post(url, data=payload)
+    resp = requests.post(url, json=payload)
 
     logger.info(resp.status_code)
 
     logger.info(payload)
-    logger.infor(resp.text)
+    logger.info(resp.text)
 
     if resp.status_code != config.HTTP_STATUS_OK:
         return "An error occured."

@@ -55,7 +55,7 @@ import tango_driver.endpoints.__root__
 import tango_driver.endpoints.qa
 # import tango_driver.endpoints.post_question
 # import tango_driver.endpoints.get_answer
-import tango_driver.endpoints.get_wiki_summary
+# import tango_driver.endpoints.get_wiki_summary
 
 
 logger.info("All API endpoints initialized. ")
