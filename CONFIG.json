@@ -27,5 +27,5 @@
     "DATA_DIR": "./data",
     "STATIC_DIR": "./static",
     "RASA_MODEL_DIR": "./rasa_nlu_model",
-    "LMS_URL": "https://996a8a53.ngrok.io"
+    "LMS_URL": "https://2991a67d.ngrok.io"
 }
