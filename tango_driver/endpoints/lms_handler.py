@@ -27,10 +27,10 @@ def do_lms_transaction():
 
         if "apply_leave" in intent_type:
             num_days = lms_util.apply_leave(
-                emp_id=userObj["employee_details"]["emp_id"], st_date=start_dt, end_date=end_dt)
+                emp_id=userObj["employee_detail"]["emp_id"], st_date=start_dt, end_date=end_dt)
 
             answer = {"answer": "Leave applied for {} days".format(
-                num_days), "score": 1.0}
+                num_days), "score": 1.0, "userObj": userObj}
         else:
             answer = answer_util.get_answer(context, question)
 
