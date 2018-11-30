@@ -33,6 +33,7 @@ def do_lms_transaction():
                 num_days), "score": 1.0, "userObj": userObj}
         else:
             answer = answer_util.get_answer(context, question)
+            answer["userObj"] = userObj
 
     except Exception as ex:
         logger.exception("Something went wrong")

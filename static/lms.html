@@ -47,7 +47,7 @@
         function get_harmony_answer(evt) {
             $("#answer").text("Please wait. Trying to answer this question.")
             $.ajax({
-                url: "https://f508ce81.ngrok.io/validateUser?tagId=" + $("#harmonyid").val(),
+                url: "https://f508ce81.ngrok.io/validateUser?hrmonyId=" + $("#harmonyid").val(),
                 type: 'GET',
 
                 success: function(data) {
