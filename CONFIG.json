@@ -2,7 +2,6 @@
     "HOST": "0.0.0.0",
     "PORT": "8000",
 
-
     "HTTPS": false,
     "SSL_CERT_DIR": "./certificates",
     "SSL_KEY_FILE": "ssl.key",
@@ -27,6 +26,6 @@
     "MODEL_URL": "http://35.243.243.141:8080/answer",
     "DATA_DIR": "./data",
     "STATIC_DIR": "./static",
-    "RASA_MODEL_DIR": "./data/models",
-    "LMS_URL": ""
+    "RASA_MODEL_DIR": "./rasa_nlu_model",
+    "LMS_URL": "https://2991a67d.ngrok.io"
 }

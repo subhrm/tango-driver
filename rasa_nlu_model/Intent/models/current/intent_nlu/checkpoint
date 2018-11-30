@@ -1,0 +1,2 @@
+model_checkpoint_path: "D:\\Subhendu\\MyPlayGround\\STG-Mekathon-201811\\tango-driver\\rasa_nlu_model\\Intent\\models\\current\\intent_nlu\\intent_classifier_tensorflow_embedding.ckpt"
+all_model_checkpoint_paths: "D:\\Subhendu\\MyPlayGround\\STG-Mekathon-201811\\tango-driver\\rasa_nlu_model\\Intent\\models\\current\\intent_nlu\\intent_classifier_tensorflow_embedding.ckpt"

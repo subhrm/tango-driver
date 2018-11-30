@@ -11,9 +11,9 @@ from tango_driver import config, logger
 nlp = spacy.load("en")
 
 intent_interpreter = Interpreter.load(
-    config.RASA_MODEL_DIR + "/intent_models/current/intent_nlu")
+    config.RASA_MODEL_DIR + "/Intent/models/current/intent_nlu")
 date_interpreter = Interpreter.load(
-    config.RASA_MODEL_DIR + "/date_models/current/date_nlu")
+    config.RASA_MODEL_DIR + "/date/models/current/date_nlu")
 
 
 def get_intent(message):
