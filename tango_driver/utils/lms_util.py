@@ -22,7 +22,7 @@ def apply_leave(emp_id, st_date, end_date):
 
     payload = {"emp_id": emp_id,
                "duration": num_days,
-               "satrt_date": st_date,
+               "start_date": st_date,
                "end_date": end_date}
     resp = requests.post(url, json=payload)
 

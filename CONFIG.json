@@ -27,5 +27,5 @@
     "DATA_DIR": "./data",
     "STATIC_DIR": "./static",
     "RASA_MODEL_DIR": "./rasa_nlu_model",
-    "LMS_URL": "https://f508ce81.ngrok.io"
+    "LMS_URL": "https://twilio-lms-mongo.herokuapp.com"
 }

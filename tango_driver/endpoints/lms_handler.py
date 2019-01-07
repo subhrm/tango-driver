@@ -23,7 +23,8 @@ def do_lms_transaction():
 
         intent_type, start_dt, end_dt = intent_parser.get_intent(question)
 
-        logger.info("Queston : %s . intent:%s , dt1: %s, dt2: %s")
+        logger.info("Queston : %s . intent:%s , dt1: %s, dt2: %s",
+                    question, intent_type, start_dt, end_dt)
 
         if "apply_leave" in intent_type:
             num_days = lms_util.apply_leave(
