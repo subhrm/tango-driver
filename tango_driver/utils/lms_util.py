@@ -9,7 +9,7 @@ from tango_driver import config, logger
     Apply leave 
 '''
 
-url = config.LMS_URL + "/applyleave"
+url = config.LMS_URL + "/applyLeave"
 
 
 def apply_leave(emp_id, st_date, end_date):
