@@ -17,8 +17,11 @@ def apply_leave(emp_id, st_date, end_date):
     date_1 = arrow.get(st_date, 'YYYY-MM-DD')
     date_2 = arrow.get(end_date, 'YYYY-MM-DD')
 
-    diff = date_2 - date_1
-    num_days = diff.days
+    if date_1 == date_2:
+        num_days = 1
+    else:
+        diff = date_2 - date_1
+        num_days = diff.days
 
     payload = {"emp_id": emp_id,
                "duration": num_days,
